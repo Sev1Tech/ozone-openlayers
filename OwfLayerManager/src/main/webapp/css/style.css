@@ -1,0 +1,29 @@
+* {
+    font-family: Arial;
+    font-size: 10pt;
+}
+
+label, th {
+    font-size: 8pt;
+    font-weight: bold;
+    text-align: left;
+}
+
+input[type="text"],
+select,
+table,
+.centerContent {
+    width: 100%;
+}
+
+.centerContent {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.shown {
+    display: block;
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee">
+
+    <display-name>${project.name}</display-name>
+    
+    <context-param>
+        <description>OWF Context Path</description>
+        <param-name>owf-context-path</param-name>
+        <param-value>${owf.context.path}</param-value>
+    </context-param>
+
+</web-app>
