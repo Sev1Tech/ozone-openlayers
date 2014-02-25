@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2012 Geocent - Published under the MIT License.
+ * See LICENSE for the full text of the license.
+ */
+ 
 /**
  * Current configuration of the supported OGC layer types.
  * Parameters for the elemnt types are:

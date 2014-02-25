@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2012 Geocent - Published under the MIT License.
+ * See LICENSE for the full text of the license.
+ */
 package com.geocent.owf.openlayers.config;
 
 import java.io.IOException;
