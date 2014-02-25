@@ -3,15 +3,15 @@
     <modelVersion>4.0.0</modelVersion>
     
     <groupId>com.geocent.owf</groupId>
-    <artifactId>parent</artifactId>
+    <artifactId>ozone-openlayers</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
     
-    <name>Geocent OWF OpenLayers Parent Project</name>
+    <name>Geocent OpenLayers OWF Widget Suitet</name>
     <url>http://www.geocent.com</url>
     
     <modules>
-	<module>OwfLayerManager</module>
-	<module>OwfMapInterface</module>
-  </modules>
+    	<module>widget-openlayers-manager</module>
+    	<module>widget-openlayers-interface</module>
+    </modules>
 </project>
