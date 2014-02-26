@@ -22,7 +22,15 @@ var OpenLayersManager = function(mapId){
      * @type Array<OpenLayers.Layer>
      */
     this.openlayersLayers = [];
-                    
+
+    /**
+     * Maximum depth for recursive loading external KML URLs.
+     * 
+     * @private
+     * @type Integer
+     */
+    this.maxKmlRemoteDepth = 3;
+
     /**
      * Create a new OpenLayers.Layer object based off of the supplied layer configuration data
      * and displays it on the map. If there is an error with the data it is ignored.
@@ -125,7 +133,8 @@ var OpenLayersManager = function(mapId){
                     url: layerData.url,
                     format: new OpenLayers.Format.KML({
                         extractStyles: true, 
-                        extractAttributes: true
+                        extractAttributes: true,
+                        maxDepth: context.maxKmlRemoteDepth
                     })
                 })
             });
