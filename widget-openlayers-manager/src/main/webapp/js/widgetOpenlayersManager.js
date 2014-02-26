@@ -13,6 +13,7 @@ new function() {
     this.widgetPreferences = {
         layerConfiguration:[],
         widgetConfiguration:{
+            channelEnabled: false,
             intentsEnabled: false
         }        
     };
@@ -86,10 +87,20 @@ new function() {
             }
         });        
         
-        context.widgetEventingController.publish("com.geocent.owf.widget-openlayers", owfdojo.toJson(submissionData));
+        if(context.widgetPreferences.widgetConfiguration.channelEnabled) {
+            context.widgetEventingController.publish("com.geocent.owf.widget-openlayers", owfdojo.toJson(submissionData));
+        }
 
         if(context.widgetPreferences.widgetConfiguration.intentsEnabled) {
-            context.submitIntents(submissionData.layerData);            
+            OWF.Intents.startActivity(
+                {   
+                    action:'manage-submit',
+                    dataType:'application/vnd.owf.geocent.com.widget-openlayers'
+                },
+                {
+                    layerData: submissionData.layerData
+                }
+            );             
         }  
     }
 
@@ -100,15 +111,7 @@ new function() {
      * @param {Object} data  Layer data to submit to the Intents API.
      */
     this.submitIntents = function(data) {
-        OWF.Intents.startActivity(
-            {   
-                action:'manage-submit',
-                dataType:'application/vnd.owf.geocent.com.widget-openlayers'
-            },
-            {
-                layerData: data
-            }
-        );        
+       
     }
     
     /**

@@ -14,6 +14,7 @@ new function() {
     this.widgetPreferences = {
         layerConfiguration:[],
         widgetConfiguration:{
+            channelEnabled: false,
             intentsEnabled: false
         }
     };
@@ -65,6 +66,10 @@ new function() {
                 }
             });
             
+            owfdojo.connect(owfdojo.byId("enableChannel"), "onchange", context, function(e){
+                context.updateWidgetConfiguration(context);
+            });
+
             owfdojo.connect(owfdojo.byId("enableIntents"), "onchange", context, function(e){
                 context.updateWidgetConfiguration(context);
             });
@@ -245,6 +250,7 @@ new function() {
      * @param {Object} context  Class object context.
      */
     this.updateWidgetConfiguration = function(context) {
+        context.widgetPreferences.widgetConfiguration.channelEnabled = owfdojo.byId("enableChannel").checked;
         context.widgetPreferences.widgetConfiguration.intentsEnabled = owfdojo.byId("enableIntents").checked;
 
         context.savePreferences(context.widgetPreferences);
@@ -270,6 +276,7 @@ new function() {
                             innerHTML: "<td><input type='checkbox' name='layers' value='"+obj.id+"'/></td><td>"+obj.title+"</td><td>"+obj.type+"</td>"
                         }, "layerInformation");
                     });
+                    owfdojo.byId("enableChannel").checked = context.widgetPreferences.widgetConfiguration.channelEnabled;
                     owfdojo.byId("enableIntents").checked = context.widgetPreferences.widgetConfiguration.intentsEnabled;
                     
                 }

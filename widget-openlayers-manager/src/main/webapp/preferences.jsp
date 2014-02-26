@@ -107,9 +107,13 @@
             <fieldset>
                 <legend>Widget Configuration</legend>
                 
-                <label for="enableIntents">Enable Intents?</label>
+                <input type="checkbox" id="enableChannel" name="enableChannel"/>
+                <label for="enableChannel">Enable Channel?</label>
+
                 <br/>
+
                 <input type="checkbox" id="enableIntents" name="enableIntents"/>
+                <label for="enableIntents">Enable Intents?</label>
             </fieldset>
         </form>
 
