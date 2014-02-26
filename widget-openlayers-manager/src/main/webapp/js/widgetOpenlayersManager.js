@@ -13,8 +13,8 @@ new function() {
     this.widgetPreferences = {
         layerConfiguration:[],
         widgetConfiguration:{
-            channelEnabled: false,
-            intentsEnabled: false
+            channelEnabled: true,
+            intentsEnabled: true
         }        
     };
     
