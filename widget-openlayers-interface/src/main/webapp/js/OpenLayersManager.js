@@ -219,6 +219,7 @@ var OpenLayersManager = function(mapId){
         georss: this.createLayerGeoRSS,
         gml: this.createLayerGML,
         kml: this.createLayerKML,
+        kmz: this.createLayerKML,
         wfs: this.createLayerWFS,
         wms: this.createLayerWMS
     };

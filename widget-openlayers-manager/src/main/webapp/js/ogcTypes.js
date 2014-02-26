@@ -26,11 +26,17 @@ var OGC_TYPES = [
     },
     
     {
-        name: "KML (Keyhole Markup Language)",
+        name: "KML (Compressed KML)",
+        value: "kmz",
+        requires: []
+    },
+
+    {
+        name: "KMZ (Keyhole Markup Language)",
         value: "kml",
         requires: []
     },
-    
+
     {
         name: "WFS (Web Feature Service)",
         value: "wfs",
