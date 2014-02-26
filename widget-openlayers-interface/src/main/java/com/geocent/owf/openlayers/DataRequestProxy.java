@@ -5,6 +5,8 @@
 package com.geocent.owf.openlayers;
 
 import com.geocent.owf.openlayers.config.XMLConfigurationManager;
+import com.geocent.owf.openlayers.handler.Handler;
+import com.geocent.owf.openlayers.handler.HandlerFactory;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -54,7 +56,7 @@ public class DataRequestProxy {
      * @return              Data from the provided remote URL.
      * @throws IOException 
      */
-    public byte[] getData(HttpServletRequest request, HttpServletResponse response, String url) throws IOException {
+    public String getData(HttpServletRequest request, HttpServletResponse response, String url) throws IOException {
         
         if(!allowUrl(url)) {
             throw new UnknownHostException("Request to invalid host not allowed.");
@@ -73,10 +75,12 @@ public class DataRequestProxy {
             connection.getOutputStream().flush();
         }
         
-        response.setContentType(connection.getContentType());
-        return IOUtils.toByteArray(connection.getInputStream());
+        // Create handler for the given content type and proxy the extracted information
+        Handler contentHandler = HandlerFactory.getHandler(connection.getContentType());
+        return contentHandler.handleContent(response, connection.getInputStream());
     }
 
+    
     /**
      * Validates if communication to a supplied URL should be allowed.
      * 

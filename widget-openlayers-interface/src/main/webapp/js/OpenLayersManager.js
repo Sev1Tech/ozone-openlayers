@@ -35,7 +35,13 @@ var OpenLayersManager = function(mapId){
         if(layer !== null) {
             this.openlayersLayers.push(layer);
             this.openlayersMap.addLayer(layer);
-            this.openlayersMap.zoomToMaxExtent();
+
+            try {
+                this.openlayersMap.zoomToMaxExtent();                
+            }
+            catch(err) {
+                console.log(err.message);
+            }
         }
     }
     
